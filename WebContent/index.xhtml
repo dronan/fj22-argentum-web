@@ -1,13 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:f="http://java.sun.com/jsf/core"
-	  xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:p="http://primefaces.org/ui">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Argentum Web</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Argentum Web</title>
 </h:head>
 <h:body>
-	<h:outputText value="Olá JSF!"/>
-	</h:body>
+	<p:panel header="Negociações" footer="Argentum Web">
+		<h:form id="listaNegociacao">
+			<p:dataTable var="negociacao" value="#{argentumBean.negociacoes}" paginator="true" rows="15">
+				<p:column sortBy="#{negociacao.preco}" headerText="Preço">
+					<h:outputText value="#{negociacao.preco}"/>
+				</p:column>
+				<p:column sortBy="#{negociacao.quantidade}" headerText="Quantidade">
+					<h:outputText value="#{negociacao.quantidade}" />
+				</p:column>
+				<p:column sortBy="#{negociacao.volume}" headerText="Volume">
+					<h:outputText value="#{negociacao.volume}"/>
+				</p:column>
+			</p:dataTable>		
+		</h:form>
+	</p:panel>
+</h:body>
 </html>
