@@ -20,6 +20,11 @@
 				<p:column sortBy="#{negociacao.volume}" headerText="Volume">
 					<h:outputText value="#{negociacao.volume}"/>
 				</p:column>
+				<p:column sortBy="#{negociacao.data}" headerText="Data">
+					<h:outputText value="#{negociacao.data.time}">
+						
+					</h:outputText>
+				</p:column>
 			</p:dataTable>		
 		</h:form>
 	</p:panel>
