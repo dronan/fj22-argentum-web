@@ -32,7 +32,7 @@ public class ArgentumBean {
 		SerieTemporal serie = new SerieTemporal(candles);
 		
 		GeradorModeloGrafico gerador = new GeradorModeloGrafico(serie, 2, serie.getTotal() - 1);
-		gerador.plotaIndicador(new MediaMovelSimples());
+		gerador.plotaIndicador(new MediaMovelSimples(new IndicadorFechamento()));
 		
 		this.modeloGrafico = gerador.getModeloGrafico();
 		
