@@ -9,6 +9,8 @@
 </h:head>
 <h:body>
 	<p:panel header="Negociações" footer="Argentum Web">
+		<p:lineChart value="#{argentumBean.modeloGrafico}" legendPosition="e" title="PETR4"/>
+		
 		<h:form id="listaNegociacao">
 			<p:dataTable var="negociacao" value="#{argentumBean.negociacoes}" paginator="true" rows="15">
 				<p:column sortBy="#{negociacao.preco}" headerText="Preço">
