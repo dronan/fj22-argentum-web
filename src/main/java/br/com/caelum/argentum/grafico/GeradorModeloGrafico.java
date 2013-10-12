@@ -4,6 +4,7 @@ import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartModel;
 import org.primefaces.model.chart.LineChartSeries;
 
+import br.com.caelum.argentum.indicadores.Indicador;
 import br.com.caelum.argentum.indicadores.MediaMovelSimples;
 import br.com.caelum.argentum.modelo.SerieTemporal;
 
@@ -21,9 +22,8 @@ public class GeradorModeloGrafico {
 		this.modeloGrafico = new CartesianChartModel();
 	}
 	
-	public void plotaMediaMovelSimples(){
-		MediaMovelSimples indicador = new MediaMovelSimples();
-		LineChartSeries chartSerie = new LineChartSeries("MMS - Fechamento");
+	public void plotaIndicador(Indicador indicador){
+		LineChartSeries chartSerie = new LineChartSeries(indicador.toString());
 		
 		for (int i = comeco; i <= fim; i++) {
 			double valor = indicador.calcula(i, serie);
