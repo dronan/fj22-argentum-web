@@ -26,6 +26,6 @@ public class MediaMovelSimples implements Indicador {
 	public MediaMovelSimples(Indicador outroIndicador) {
 		this.outroIndicador = outroIndicador;
 	}
-	
+
 	
 }

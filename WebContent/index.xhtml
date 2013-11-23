@@ -8,26 +8,40 @@
 	<title>Argentum Web</title>
 </h:head>
 <h:body>
-	<p:panel header="Negociações" footer="Argentum Web">
-		<p:lineChart value="#{argentumBean.modeloGrafico}" legendPosition="e" title="PETR4"/>
-		
+	<p:panel header="Dados do gráfico">
+		<h:form id="dadosGrafico">
+			<p:growl/>
+			<h:panelGrid columns="2">
+				<p:outputLabel for="titulo" value="Título:" />
+				<p:inputText id="titulo" value="#{argentumBean.titulo}" required="true">
+					<f:validateLength minimum="3"></f:validateLength>
+				</p:inputText>
+				<h:commandLink action="#{argentumBean.preparaDados}" value="Gerar Gráfico" />
+			</h:panelGrid>
+		</h:form>
+	</p:panel>
+	<p:panel header="Negociações" footer="Argentum Web" rendered="#{argentumBean.modeloGrafico != null}">
+		<p:lineChart value="#{argentumBean.modeloGrafico}" legendPosition="e"
+			title="#{argentumBean.titulo}" />
+
 		<h:form id="listaNegociacao">
-			<p:dataTable var="negociacao" value="#{argentumBean.negociacoes}" paginator="true" rows="15">
+			<p:dataTable var="negociacao" value="#{argentumBean.negociacoes}"
+				paginator="true" rows="15">
 				<p:column sortBy="#{negociacao.preco}" headerText="Preço">
-					<h:outputText value="#{negociacao.preco}"/>
+					<h:outputText value="#{negociacao.preco}" />
 				</p:column>
 				<p:column sortBy="#{negociacao.quantidade}" headerText="Quantidade">
 					<h:outputText value="#{negociacao.quantidade}" />
 				</p:column>
 				<p:column sortBy="#{negociacao.volume}" headerText="Volume">
-					<h:outputText value="#{negociacao.volume}"/>
+					<h:outputText value="#{negociacao.volume}" />
 				</p:column>
 				<p:column sortBy="#{negociacao.data}" headerText="Data">
 					<h:outputText value="#{negociacao.data.time}">
-						
+
 					</h:outputText>
 				</p:column>
-			</p:dataTable>		
+			</p:dataTable>
 		</h:form>
 	</p:panel>
 </h:body>

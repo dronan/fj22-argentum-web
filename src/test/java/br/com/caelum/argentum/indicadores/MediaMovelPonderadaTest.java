@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import br.com.caelum.argentum.modelo.IndicadorFechamento;
 import br.com.caelum.argentum.modelo.SerieTemporal;
 
 public class MediaMovelPonderadaTest {
