@@ -16,6 +16,17 @@
 				<p:inputText id="titulo" value="#{argentumBean.titulo}" required="true">
 					<f:validateLength minimum="3"></f:validateLength>
 				</p:inputText>
+				<p:outputLabel value="Indicador:" for="indicador"/>
+				<p:selectOneMenu id="indicador" value="#{argentumBean.nomeIndicador}">
+					<f:selectItem itemValue="IndicadorAbertura" itemLabel="Abertura"/>
+					<f:selectItem itemValue="IndicadorFechamento" itemLabel="Fechamento"/>
+				</p:selectOneMenu>
+				<p:outputLabel value="Média:" for="media"/>
+				<p:selectOneMenu id="media" value="#{argentumBean.nomeMedia}">
+					<f:selectItem itemValue="" itemLabel="Escolhe um" />
+					<f:selectItem itemValue="MediaMovelSimples" itemLabel="Simples"/>
+					<f:selectItem itemValue="MediaMovelPonderada" itemLabel="Ponderada"/>
+				</p:selectOneMenu>
 				<h:commandLink action="#{argentumBean.preparaDados}" value="Gerar Gráfico" />
 			</h:panelGrid>
 		</h:form>

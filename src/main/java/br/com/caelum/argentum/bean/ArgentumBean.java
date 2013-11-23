@@ -2,14 +2,12 @@ package br.com.caelum.argentum.bean;
 
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import org.primefaces.model.chart.ChartModel;
 
 import br.com.caelum.argentum.grafico.GeradorModeloGrafico;
-import br.com.caelum.argentum.indicadores.Indicador;
 import br.com.caelum.argentum.indicadores.MediaMovelSimples;
 import br.com.caelum.argentum.modelo.Candle;
 import br.com.caelum.argentum.modelo.CandlestickFactory;
@@ -22,8 +20,11 @@ import br.com.caelum.argentum.ws.ClienteWebService;
 @SessionScoped
 public class ArgentumBean {
 
+	private String nomeIndicador;
+	private String nomeMedia;
 	private String titulo;
 	private List<Negociacao> negociacoes;
+	private ChartModel modeloGrafico;
 
 	public String getTitulo() {
 		return titulo;
@@ -33,10 +34,27 @@ public class ArgentumBean {
 		this.titulo = titulo;
 	}
 
-	private ChartModel modeloGrafico;
+	public String getNomeIndicador() {
+		return nomeIndicador;
+	}
+
+	public void setNomeIndicador(String nomeIndicador) {
+		this.nomeIndicador = nomeIndicador;
+	}
+
+	public String getNomeMedia() {
+		return nomeMedia;
+	}
+
+	public void setNomeMedia(String nomeMedia) {
+		this.nomeMedia = nomeMedia;
+	}
 
 	//@PostConstruct
 	public void preparaDados() {
+		
+		System.out.println("Indicador:"+ nomeIndicador + "," + nomeMedia);
+		
 		ClienteWebService cliente = new ClienteWebService();
 		this.negociacoes = cliente.getNegociacoes();
 

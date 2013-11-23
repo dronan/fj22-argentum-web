@@ -21,7 +21,7 @@ public class MediaMovelPonderada implements Indicador {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "MMP de Fechamento";
+		return "MMP - " + this.outroIndicador.toString();
 	}
 	
 	public MediaMovelPonderada(Indicador outroIndicador) {

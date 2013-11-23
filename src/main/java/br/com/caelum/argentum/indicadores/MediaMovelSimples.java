@@ -20,7 +20,7 @@ public class MediaMovelSimples implements Indicador {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "MMS de Fechamento";
+		return "MMS - " + this.outroIndicador.toString();
 	}
 	
 	public MediaMovelSimples(Indicador outroIndicador) {
